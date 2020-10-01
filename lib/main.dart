@@ -25,6 +25,7 @@ class MyStatefulWidget extends StatefulWidget {
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   static const Color rosaEscuro = Color(0xffE2799B);
   static const Color rosaClaro = Color(0xffF9F1EE);
+  static const Color cinzaTexto = Color(0xff64605F);
 
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
@@ -49,11 +50,33 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   ];
 
   static const TextStyle optionStyleTelas =
-      TextStyle(fontSize: 14, color: Colors.black);
-  static const List<Widget> _telas = <Widget>[
-    Text(
-      'Criamos esse App para compartilhar com vocês os detalhes da organização do nosso casamento. Estamos muito felizes e contamos com a presença de todos no nosso grande dia! Aqui vocês encontrarão também informações sobre o local, data e hora. Ah, é importante também confirmar sua presença. Para isto contamos com sua ajuda clicando no menu no botão flutuante da lista e preenchendo os dados necessários. Para nos presentear, escolha qualquer item da Lista de Casamento, seja um item de algum dos sites, lojas físicas, ou então vocês podem utilizar a opção de cotas. Fiquem à vontade! Aguardamos vocês no nosso grande dia!',
-      style: optionStyleTelas,
+      TextStyle(fontSize: 14, color: cinzaTexto);
+  static List<Widget> _telas = <Widget>[
+    Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Container(
+          color: Colors.blue,
+          child: FlutterLogo(
+            size: 60.0,
+          ),
+        ),
+        Text(
+          'Criamos esse App para compartilhar com vocês os detalhes da organização do nosso casamento. Estamos muito felizes e contamos com a presença de todos no nosso grande dia! Aqui vocês encontrarão também informações sobre o local, data e hora. Ah, é importante também confirmar sua presença. Para isto contamos com sua ajuda clicando no menu no botão flutuante da lista e preenchendo os dados necessários. Para nos presentear, escolha qualquer item da Lista de Casamento, seja um item de algum dos sites, lojas físicas, ou então vocês podem utilizar a opção de cotas. Fiquem à vontade! Aguardamos vocês no nosso grande dia!',
+          style: optionStyleTelas,
+        ),
+      ],
+    ),
+    Column(
+      children: <Widget>[
+        Expanded(
+          child: Text(
+            'Criamos esse App para compartilhar com vocês os detalhes da organização do nosso casamento. Estamos muito felizes e contamos com a presença de todos no nosso grande dia! Aqui vocês encontrarão também informações sobre o local, data e hora. Ah, é importante também confirmar sua presença. Para isto contamos com sua ajuda clicando no menu no botão flutuante da lista e preenchendo os dados necessários. Para nos presentear, escolha qualquer item da Lista de Casamento, seja um item de algum dos sites, lojas físicas, ou então vocês podem utilizar a opção de cotas. Fiquem à vontade! Aguardamos vocês no nosso grande dia!',
+            style: optionStyleTelas,
+          ),
+        ),
+      ],
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     ),
     Text(
       'Noivos',
@@ -85,11 +108,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          _telas.elementAt(_selectedIndex),
-        ],
+      body: Padding(
+        padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+        child: _telas.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: rosaEscuro,
