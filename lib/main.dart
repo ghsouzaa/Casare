@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'configs/pallete.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,7 +10,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: _title,
+      theme: ThemeData(primaryColor: Colors.pink),
       home: MyStatefulWidget(),
     );
   }
@@ -23,40 +26,20 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  static const Color rosaEscuro = Color(0xffE2799B);
-  static const Color rosaClaro = Color(0xffF9F1EE);
-  static const Color cinzaTexto = Color(0xff64605F);
-
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 24, color: rosaEscuro);
-  static const List<Widget> _appBarTitles = <Widget>[
-    Text(
-      'Início',
-      style: optionStyle,
-    ),
-    Text(
-      'Noivos',
-      style: optionStyle,
-    ),
-    Text(
-      'Local',
-      style: optionStyle,
-    ),
-    Text(
-      'Presentes',
-      style: optionStyle,
-    ),
-  ];
 
   static const TextStyle optionStyleTelas =
-      TextStyle(fontSize: 15, color: cinzaTexto);
+      TextStyle(fontSize: 15, color: Pallete.cinzaTexto);
   static List<Widget> _telas = <Widget>[
     Padding(
       padding: EdgeInsets.fromLTRB(30, 0, 30, 75),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
+//################################################################################
+//################################ TELA DE INICIO ################################
+//################################################################################
+
           Image.asset("assets/images/gabline.png"),
           Padding(
             padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
@@ -76,14 +59,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                       '\n\nAh, é importante também confirmar sua presença. Para isto contamos com sua ajuda clicando no ',
                 ),
                 TextSpan(
-                    text: 'Botão  ',
+                    text: 'Botão ',
                     style: TextStyle(
-                        color: Colors.green, fontWeight: FontWeight.bold)),
+                        color: Pallete.verde, fontWeight: FontWeight.bold)),
                 WidgetSpan(
                   child: Icon(
                     Icons.check_circle,
-                    size: 16,
-                    color: Colors.green,
+                    size: 18,
+                    color: Pallete.verde,
                   ),
                 ),
                 TextSpan(
@@ -96,7 +79,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 TextSpan(
                     text: '\n\nAguardamos vocês no nosso grande dia!',
                     style: TextStyle(
-                        color: rosaEscuro,
+                        color: Pallete.rosaEscuro,
                         fontWeight: FontWeight.bold,
                         fontSize: 16)),
               ]),
@@ -105,6 +88,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         ],
       ),
     ),
+
+//################################################################################
+//################################ TELA DOS NOIVOS ###############################
+//################################################################################
+
     Padding(
       padding: EdgeInsets.fromLTRB(30, 0, 30, 75),
       child: Column(
@@ -135,21 +123,74 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 ),
               ),
             ],
-          )
+          ),
+          Padding(
+              padding: EdgeInsets.fromLTRB(0, 15, 0, 75),
+              child: RichText(
+                textAlign: TextAlign.justify,
+                text: TextSpan(
+                  style: optionStyleTelas,
+                  children: [
+                    TextSpan(
+                        text:
+                            'Histórias de amor existem, e, às vezes, nem nós mesmos acreditamos todo o tempo que já estamos juntos. Porém, o brilho intenso e apaixonado dos nossos olhares nos fazem lembrar o porquê de chegarmos até aqui sem sentir tanto o tempo passar....'),
+                    TextSpan(
+                        text:
+                            '\n\nVamos nos casar! Estamos preparando tudo com muito carinho para curtirmos cada momento com nossos amigos e familiares queridos!')
+                  ],
+                ),
+              ))
+          // Text(
+          //   textAlign: TextAlign.justify,
+          //   text:
+          //       "Histórias de amor existem, e, às vezes, nem nós mesmos acreditamos todo o tempo que já estamos juntos. Porém, o brilho intenso e apaixonado dos nossos olhares nos fazem lembrar o porquê de chegarmos até aqui sem sentir tanto o tempo passar....Vamos nos casar! Estamos preparando tudo com muito carinho para curtirmos cada momento com nossos amigos e familiares queridos!",
+          // ),
         ],
       ),
     ),
-    Text(
-      'Noivos',
-      style: optionStyleTelas,
-    ),
+
+//################################################################################
+//################################ TELA DE LOCAL #################################
+//################################################################################
+
     Text(
       'Local',
       style: optionStyleTelas,
     ),
-    Text(
-      'Presentes',
-      style: optionStyleTelas,
+
+//################################################################################
+//################################ TELA DE PRESENTES #############################
+//################################################################################
+
+    Padding(
+      padding: EdgeInsets.fromLTRB(30, 0, 30, 75),
+      child: (Card(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            const ListTile(
+              leading: Icon(Icons.album),
+              title: Text('The Enchanted Nightingale'),
+              subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                // TextButton(
+                //   child: const Text('BUY TICKETS'),
+                //   onPressed: () { /* ... */ },
+                // ),
+                // const SizedBox(width: 8),
+                // TextButton(
+                //   child: const Text('LISTEN'),
+                //   onPressed: () { /* ... */ },
+                // ),
+                const SizedBox(width: 8),
+              ],
+            ),
+          ],
+        ),
+      )),
     ),
   ];
 
@@ -162,13 +203,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: rosaClaro,
-      // appBar: AppBar(
-      //   title: _appBarTitles.elementAt(_selectedIndex),
-      //   centerTitle: true,
-      //   backgroundColor: Colors.transparent,
-      //   elevation: 0,
-      // ),
+      backgroundColor: Pallete.rosaClaro,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
@@ -176,7 +211,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: rosaEscuro,
+        backgroundColor: Pallete.rosaEscuro,
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -205,8 +240,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           // Add your onPressed code here!
         },
         child: Icon(Icons.check),
-        backgroundColor: Colors.green,
+        backgroundColor: Pallete.verde,
       ),
     );
   }
 }
+
+class TextButton {}

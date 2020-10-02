@@ -51,7 +51,11 @@ flutter:
     - assets/images/gabline2.png
     - assets/images/gabline3.png
     - assets/images/gabline4.png
+    - assets/images/torre.png
+    - assets/images/aviao.png
     - assets/love.json
+    - assets/digital-love.json
+    - assets/hello-love.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
