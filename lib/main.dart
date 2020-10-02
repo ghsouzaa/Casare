@@ -50,33 +50,94 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   ];
 
   static const TextStyle optionStyleTelas =
-      TextStyle(fontSize: 14, color: cinzaTexto);
+      TextStyle(fontSize: 15, color: cinzaTexto);
   static List<Widget> _telas = <Widget>[
-    Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Container(
-          color: Colors.blue,
-          child: FlutterLogo(
-            size: 60.0,
-          ),
-        ),
-        Text(
-          'Criamos esse App para compartilhar com vocês os detalhes da organização do nosso casamento. Estamos muito felizes e contamos com a presença de todos no nosso grande dia! Aqui vocês encontrarão também informações sobre o local, data e hora. Ah, é importante também confirmar sua presença. Para isto contamos com sua ajuda clicando no menu no botão flutuante da lista e preenchendo os dados necessários. Para nos presentear, escolha qualquer item da Lista de Casamento, seja um item de algum dos sites, lojas físicas, ou então vocês podem utilizar a opção de cotas. Fiquem à vontade! Aguardamos vocês no nosso grande dia!',
-          style: optionStyleTelas,
-        ),
-      ],
+    Padding(
+      padding: EdgeInsets.fromLTRB(30, 0, 30, 75),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Image.asset("assets/images/gabline.png"),
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
+            child: RichText(
+              textAlign: TextAlign.justify,
+              text: TextSpan(style: optionStyleTelas, children: [
+                TextSpan(
+                  text:
+                      'Criamos esse App para compartilhar com vocês os detalhes da organização do nosso casamento. Estamos muito felizes e contamos com a presença de todos no nosso grande dia!',
+                ),
+                TextSpan(
+                  text:
+                      '\n\nAqui vocês encontrarão também informacoes sobre o local, data e hora do evento.',
+                ),
+                TextSpan(
+                  text:
+                      '\n\nAh, é importante também confirmar sua presença. Para isto contamos com sua ajuda clicando no ',
+                ),
+                TextSpan(
+                    text: 'Botão  ',
+                    style: TextStyle(
+                        color: Colors.green, fontWeight: FontWeight.bold)),
+                WidgetSpan(
+                  child: Icon(
+                    Icons.check_circle,
+                    size: 16,
+                    color: Colors.green,
+                  ),
+                ),
+                TextSpan(
+                  text: ' e preenchendo os dados necessários.',
+                ),
+                TextSpan(
+                  text:
+                      '\n\nPara nos presentear, escolha qualquer item da Lista de Casamento, seja um item de algum dos sites, lojas físicas, ou então vocês podem utilizar a opção de cotas. Fiquem à vontade!',
+                ),
+                TextSpan(
+                    text: '\n\nAguardamos vocês no nosso grande dia!',
+                    style: TextStyle(
+                        color: rosaEscuro,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16)),
+              ]),
+            ),
+          )
+        ],
+      ),
     ),
-    Column(
-      children: <Widget>[
-        Expanded(
-          child: Text(
-            'Criamos esse App para compartilhar com vocês os detalhes da organização do nosso casamento. Estamos muito felizes e contamos com a presença de todos no nosso grande dia! Aqui vocês encontrarão também informações sobre o local, data e hora. Ah, é importante também confirmar sua presença. Para isto contamos com sua ajuda clicando no menu no botão flutuante da lista e preenchendo os dados necessários. Para nos presentear, escolha qualquer item da Lista de Casamento, seja um item de algum dos sites, lojas físicas, ou então vocês podem utilizar a opção de cotas. Fiquem à vontade! Aguardamos vocês no nosso grande dia!',
-            style: optionStyleTelas,
+    Padding(
+      padding: EdgeInsets.fromLTRB(30, 0, 30, 75),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.all(2),
+            child: Image.asset("assets/images/gabline.png"),
           ),
-        ),
-      ],
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          Row(
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.all(2),
+                  child: Image.asset("assets/images/gabline2.png"),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.all(2),
+                  child: Image.asset("assets/images/gabline3.png"),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.all(2),
+                  child: Image.asset("assets/images/gabline4.png"),
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
     ),
     Text(
       'Noivos',
@@ -102,15 +163,17 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: rosaClaro,
-      appBar: AppBar(
-        title: _appBarTitles.elementAt(_selectedIndex),
-        centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
-        child: _telas.elementAt(_selectedIndex),
+      // appBar: AppBar(
+      //   title: _appBarTitles.elementAt(_selectedIndex),
+      //   centerTitle: true,
+      //   backgroundColor: Colors.transparent,
+      //   elevation: 0,
+      // ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
+          child: _telas.elementAt(_selectedIndex),
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: rosaEscuro,
