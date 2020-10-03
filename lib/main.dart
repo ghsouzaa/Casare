@@ -169,22 +169,17 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             const ListTile(
-              leading: Icon(Icons.album),
-              title: Text('The Enchanted Nightingale'),
-              subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
+              title: Text('Visitar Torre Eiffel'),
+              subtitle: Text('RS 150,00'),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                // TextButton(
-                //   child: const Text('BUY TICKETS'),
-                //   onPressed: () { /* ... */ },
-                // ),
-                // const SizedBox(width: 8),
-                // TextButton(
-                //   child: const Text('LISTEN'),
-                //   onPressed: () { /* ... */ },
-                // ),
+                TextButton(
+                  child: const Text('PRESENTEAR'),
+                  onPressed: () {/* ... */},
+                ),
+                const SizedBox(width: 8),
                 const SizedBox(width: 8),
               ],
             ),
