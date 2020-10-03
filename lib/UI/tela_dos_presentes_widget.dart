@@ -15,7 +15,7 @@ class TelaDosPresentesWidget extends StatelessWidget {
                 children: <Widget>[
                   TextButton(
                     child: const Text('PRESENTEAR'),
-                    onPressed: () => print('PRESENTER'),
+                    onPressed: () => print('PRESENTE'),
                   ),
                   const SizedBox(width: 16),
                 ],
