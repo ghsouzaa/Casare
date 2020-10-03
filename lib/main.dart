@@ -241,4 +241,3 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   }
 }
 
-class TextButton {}
