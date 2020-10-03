@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 
 class TelaDeInicioWidget extends StatelessWidget {
   //
+  static const fotoGabline = "assets/images/gabline.png";
+
   @override
   Widget build(Object context) {
     return Padding(
@@ -11,7 +13,7 @@ class TelaDeInicioWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Image.asset("assets/images/gabline.png"),
+          Image.asset(fotoGabline),
           Padding(
             padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
             child: RichText(
