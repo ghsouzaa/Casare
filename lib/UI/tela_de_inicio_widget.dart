@@ -9,7 +9,7 @@ class TelaDeInicioWidget extends StatelessWidget {
   @override
   Widget build(Object context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(30, 0, 30, 75),
+      padding: EdgeInsets.fromLTRB(0, 0, 0, 75),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [

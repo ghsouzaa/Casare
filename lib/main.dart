@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'UI/tela_de_inicio_widget.dart';
 import 'UI/tela_do_local_widget.dart';
 import 'UI/tela_dos_presentes_widget.dart';
+import 'UI/tela_presenca.dart';
 import 'configs/pallete.dart';
 
 void main() => runApp(MyApp());
@@ -16,7 +17,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: _title,
-        theme: ThemeData(primaryColor: Colors.pink),
+        theme: ThemeData(primaryColor: Pallete.rosaEscuro,
+        accentColor: Pallete.rosaEscuro,
+        accentColorBrightness: Brightness.light),
         home: HomeStatefulWidget(),
       );
 }
@@ -49,23 +52,22 @@ class _HomeStatefulWidgetState extends State<HomeStatefulWidget> {
         backgroundColor: Pallete.rosaEscuro,
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Início'),
-          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Noivos'),
-          BottomNavigationBarItem(icon: Icon(Icons.pin_drop), label: 'Local'),
-          BottomNavigationBarItem(icon: Icon(Icons.card_giftcard), label: 'Presentes'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Início')),
+          BottomNavigationBarItem(icon: Icon(Icons.favorite), title: Text('Noivos')),
+          BottomNavigationBarItem(icon: Icon(Icons.pin_drop), title: Text('Local')),
+          BottomNavigationBarItem(icon: Icon(Icons.card_giftcard), title: Text('Presentes')),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.white,
         onTap: (int index) => setState(() => _selectedIndex = index),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
-          child: telas.elementAt(_selectedIndex),
-        ),
+        padding: EdgeInsets.fromLTRB(20, 40, 20, 0),
+        child: telas.elementAt(_selectedIndex),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => print("floatingActionButton: Icons.check "),
+        elevation: 10,
+        onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => TelaPresencaWidget())),
         child: Icon(Icons.check),
         backgroundColor: Pallete.verde,
       ),

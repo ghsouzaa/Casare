@@ -11,7 +11,7 @@ class TelaDosNoivosWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(30, 0, 30, 75),
+      padding: EdgeInsets.fromLTRB(0, 0, 0, 75),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -46,17 +46,8 @@ class TelaDosNoivosWidget extends StatelessWidget {
                             'para curtirmos cada momento com nossos amigos e familiares queridos!')
                   ],
                 ),
-              ))
-          // Text(
-          //   textAlign: TextAlign.justify,
-          //   text:
-          //       "Histórias de amor existem, e, às vezes, nem nós mesmos acreditamos todo o
-          //       tempo que já estamos juntos. Porém, o brilho intenso e apaixonado dos
-          //       nossos olhares nos fazem lembrar o porquê de chegarmos até aqui sem sentir
-          //       tanto o tempo passar....Vamos nos casar! Estamos preparando tudo com
-          //       muito carinho para curtirmos cada momento com nossos amigos e
-          //       familiares queridos!",
-          // ),
+              )
+          )
         ],
       ),
     );
