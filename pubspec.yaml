@@ -51,6 +51,8 @@ flutter:
     - assets/images/gabline2.png
     - assets/images/gabline3.png
     - assets/images/gabline4.png
+    - assets/images/gabline5.png
+    - assets/images/mapa.png
     - assets/images/torre.png
     - assets/images/aviao.png
     - assets/love.json
@@ -68,10 +70,11 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: Futura
+      fonts:
+        - asset: fonts/futura1.ttf
+        - asset: fonts/futura2.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

@@ -15,7 +15,7 @@ class TelaDeInicioWidget extends StatelessWidget {
         children: [
           Image.asset(fotoGabline),
           Padding(
-            padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
+            padding: EdgeInsets.fromLTRB(30, 30, 30, 0),
             child: RichText(
               textAlign: TextAlign.justify,
               text: TextSpan(style: Styles.optionsTelas, children: [

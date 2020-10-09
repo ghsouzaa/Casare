@@ -7,30 +7,30 @@ class TelaDosNoivosWidget extends StatelessWidget {
   static const fotoGabline2 = "assets/images/gabline2.png";
   static const fotoGabline3 = "assets/images/gabline3.png";
   static const fotoGabline4 = "assets/images/gabline4.png";
+  static const fotoGabline5 = "assets/images/gabline5.png";
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(0, 0, 0, 75),
+      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Padding(padding: EdgeInsets.all(2), child: Image.asset(fotoGabline)),
           Row(
             children: [
               Expanded(
-                child: Padding(padding: EdgeInsets.all(2), child: Image.asset(fotoGabline2)),
+                child: Image.asset(fotoGabline2),
               ),
               Expanded(
-                child: Padding(padding: EdgeInsets.all(2), child: Image.asset(fotoGabline3)),
+                child: Image.asset(fotoGabline3),
               ),
-              Expanded(
-                child: Padding(padding: EdgeInsets.all(2), child: Image.asset(fotoGabline4)),
-              ),
+              // Expanded(
+              //   child: Image.asset(fotoGabline4),
+              // ),
             ],
           ),
           Padding(
-              padding: EdgeInsets.fromLTRB(0, 15, 0, 75),
+              padding: EdgeInsets.fromLTRB(30, 30, 30, 30),
               child: RichText(
                 textAlign: TextAlign.justify,
                 text: TextSpan(
@@ -47,6 +47,16 @@ class TelaDosNoivosWidget extends StatelessWidget {
                   ],
                 ),
               )
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: Image.asset(fotoGabline5),
+              ),
+    Expanded(
+      child: Image.asset(fotoGabline4),
+    ),
+            ],
           )
         ],
       ),

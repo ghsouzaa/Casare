@@ -70,7 +70,7 @@ class TelaDosPresentesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) =>
   Padding(
-    padding: EdgeInsets.fromLTRB(0, 0, 0, 75),
+    padding: EdgeInsets.fromLTRB(15, 15, 15, 75),
     child:
     Column(
       children: [
@@ -78,7 +78,7 @@ class TelaDosPresentesWidget extends StatelessWidget {
           padding: EdgeInsets.fromLTRB(0, 0, 0, 15),
           child: Card(
             elevation: 20,
-            shadowColor: Pallete.rosaEscuro,
+            shadowColor: Pallete.shadowCards,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
@@ -109,7 +109,7 @@ class TelaDosPresentesWidget extends StatelessWidget {
           padding: EdgeInsets.fromLTRB(0, 0, 0, 15),
           child: Card(
             elevation: 20,
-            shadowColor: Pallete.rosaEscuro,
+            shadowColor: Pallete.shadowCards,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[

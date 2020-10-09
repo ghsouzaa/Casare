@@ -19,7 +19,9 @@ class MyApp extends StatelessWidget {
         title: _title,
         theme: ThemeData(primaryColor: Pallete.rosaEscuro,
         accentColor: Pallete.rosaEscuro,
-        accentColorBrightness: Brightness.light),
+        accentColorBrightness: Brightness.light,
+        fontFamily: 'Futura'
+        ),
         home: HomeStatefulWidget(),
       );
 }
@@ -47,7 +49,7 @@ class _HomeStatefulWidgetState extends State<HomeStatefulWidget> {
   Widget build(BuildContext context) {
     //
     return Scaffold(
-      backgroundColor: Pallete.rosaClaro,
+      backgroundColor: Colors.white,
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Pallete.rosaEscuro,
         type: BottomNavigationBarType.fixed,
@@ -58,13 +60,16 @@ class _HomeStatefulWidgetState extends State<HomeStatefulWidget> {
           BottomNavigationBarItem(icon: Icon(Icons.card_giftcard), title: Text('Presentes')),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.white,
+        selectedItemColor: Pallete.laranjaMenuBottom,
+        unselectedItemColor: Pallete.itemNaoSelecionadoMenuBottom,
         onTap: (int index) => setState(() => _selectedIndex = index),
       ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.fromLTRB(20, 40, 20, 0),
-        child: telas.elementAt(_selectedIndex),
-      ),
+      body:
+          SafeArea(
+            child: SingleChildScrollView(
+              child: telas.elementAt(_selectedIndex),
+            ),
+          ),
       floatingActionButton: FloatingActionButton(
         elevation: 10,
         onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => TelaPresencaWidget())),
